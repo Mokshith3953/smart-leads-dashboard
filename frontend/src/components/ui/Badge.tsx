@@ -1,4 +1,3 @@
-import React from 'react';
 import { LeadStatus, LeadSource } from '../../types';
 
 const statusColors: Record<LeadStatus, string> = {

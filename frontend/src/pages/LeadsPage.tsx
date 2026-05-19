@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useLeads } from '../hooks/useLeads';
 import { useDebounce } from '../hooks/useDebounce';
 import { LeadFiltersBar } from '../components/leads/LeadFiltersBar';

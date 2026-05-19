@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Input } from '../ui/Input';
 import { Select } from '../ui/Select';
 import { Button } from '../ui/Button';
@@ -64,11 +64,12 @@ export const LeadForm = ({ lead, onSuccess, onCancel }: LeadFormProps) => {
 
     setLoading(true);
     try {
+      const payload = { ...form, source: form.source as LeadSource };
       if (lead) {
-        await leadsApi.update(lead._id, form);
+        await leadsApi.update(lead._id, payload);
         toast.success('Lead updated successfully');
       } else {
-        await leadsApi.create(form);
+        await leadsApi.create(payload);
         toast.success('Lead created successfully');
       }
       onSuccess();

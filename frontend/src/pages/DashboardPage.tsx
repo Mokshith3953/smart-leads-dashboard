@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLeadStats } from '../hooks/useLeads';
 import { useAuth } from '../context/AuthContext';

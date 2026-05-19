@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Lead } from '../../types';
 import { Badge } from '../ui/Badge';
