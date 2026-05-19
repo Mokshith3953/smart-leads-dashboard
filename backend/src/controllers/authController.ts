@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import User from '../models/User';
 import { ApiResponse, JwtPayload } from '../types';
 
-const signToken = (payload: JwtPayload): string =>
-  jwt.sign(payload, process.env.JWT_SECRET as string, {
-    expiresIn: process.env.JWT_EXPIRES_IN ?? '7d',
-  });
+const signToken = (payload: JwtPayload): string => {
+  const options: SignOptions = {
+    expiresIn: (process.env.JWT_EXPIRES_IN ?? '7d') as SignOptions['expiresIn'],
+  };
+  return jwt.sign(payload, process.env.JWT_SECRET as string, options);
+};
 
 export const register = async (req: Request, res: Response): Promise<void> => {
   const { name, email, password, role } = req.body;
